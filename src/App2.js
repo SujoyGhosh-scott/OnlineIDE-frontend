@@ -78,18 +78,15 @@ const App2 = () => {
             setCode={setCode}
             handleSubmit={handleSubmit}
             resetCode={resetCode}
+            status={status}
+            jobId={jobId}
           />
         </div>
         <div
           className="border-2 border-indigo-700 p-2 flex flex-col w-full md:w-2/5"
           style={{ minHeight: 200 }}
         >
-          <OutputScreen
-            status={status}
-            jobId={jobId}
-            output={output}
-            error={error}
-          />
+          <OutputScreen output={output} error={error} />
         </div>
       </div>
 
