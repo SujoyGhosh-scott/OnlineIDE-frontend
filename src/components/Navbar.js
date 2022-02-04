@@ -3,10 +3,10 @@ import React from "react";
 const Navbar = ({ lang, setLang }) => {
   return (
     <nav className="p-4 bg-indigo-700 text-indigo-50 flex flex-col md:flex-row justify-between font-sans items-center">
-      <h1 className="text-2xl font-semibold text-indigo-50">
+      <h1 className="text-2xl w-full md:w-fit font-semibold text-indigo-50">
         Online Code Editor
       </h1>
-      <div>
+      <div className="w-full md:w-fit">
         <span className="">Choose a language: </span>
         <select
           value={lang}
