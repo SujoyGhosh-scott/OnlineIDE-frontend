@@ -1,14 +1,15 @@
 import React from "react";
 
-const OutputScreen = ({ status }) => {
+const OutputScreen = ({ status, jobId, output, error }) => {
   return (
     <>
       <p className="text-xl text-indigo-700">Output</p>
       <div className="bg-gray-100 p-1 flex-1 overflow-y-scroll mt-1">
-        <p>Hello World!!!</p>
+        <p>{output}</p>
+        <p>{error}</p>
       </div>
       <div className="text-sm">
-        {/*<p>jobId: 12341234</p>*/}
+        <p>jobId: {jobId}</p>
         <p>
           status:{" "}
           <span
@@ -23,7 +24,7 @@ const OutputScreen = ({ status }) => {
             {status}
           </span>
         </p>
-        <p>created At: {Date().slice(0, 34)}</p>
+        {/*<p>created At: {Date().slice(0, 34)}</p>*/}
       </div>
     </>
   );
