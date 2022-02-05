@@ -15,6 +15,8 @@ const App2 = () => {
   const [jobId, setJobId] = useState("");
   const [status, setStatus] = useState("");
 
+  console.log("msg: ", process.env.REACT_APP_SECRET_NAME);
+
   useEffect(() => {
     setCode(data[lang]);
   }, [lang]);
@@ -30,7 +32,7 @@ const App2 = () => {
     const payload = { lang, code };
     //http://localhost:5000/run
     axios
-      .post("https://online-ide-sg.herokuapp.com/run", payload)
+      .post(`${process.env.REACT_APP_APIBASE}/run`, payload)
       .then((res) => {
         console.log("run data: ", res.data);
         setJobId(res.data.jobId);
@@ -39,7 +41,7 @@ const App2 = () => {
         //after every 1sec we'll use the /status api to get the output
         intervalId = setInterval(async () => {
           const { data: dataResp } = await axios.get(
-            `https://online-ide-sg.herokuapp.com/status?id=${res.data.jobId}`
+            `${process.env.REACT_APP_APIBASE}/status?id=${res.data.jobId}`
           );
           console.log("status data: ", dataResp);
           const { success, job, error } = dataResp;
