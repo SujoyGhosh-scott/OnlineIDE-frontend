@@ -28,9 +28,9 @@ const App2 = () => {
     setOutput("");
     setError("");
     const payload = { lang, code };
-
+    //http://localhost:5000/run
     axios
-      .post("http://localhost:5000/run", payload)
+      .post("https://online-ide-sg.herokuapp.com/run", payload)
       .then((res) => {
         console.log("run data: ", res.data);
         setJobId(res.data.jobId);
@@ -39,7 +39,7 @@ const App2 = () => {
         //after every 1sec we'll use the /status api to get the output
         intervalId = setInterval(async () => {
           const { data: dataResp } = await axios.get(
-            `http://localhost:5000/status?id=${res.data.jobId}`
+            `https://online-ide-sg.herokuapp.com/status?id=${res.data.jobId}`
           );
           console.log("status data: ", dataResp);
           const { success, job, error } = dataResp;

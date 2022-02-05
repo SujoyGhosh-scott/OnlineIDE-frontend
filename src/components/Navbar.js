@@ -17,7 +17,7 @@ const Navbar = ({ lang, setLang }) => {
           <option className="bg-indigo-700" value="c">
             C
           </option>
-          <option className="bg-indigo-700" value="cpp">
+          <option className="bg-indigo-700" value="cpp" disabled>
             C++
           </option>
           <option className="bg-indigo-700" value="py">
